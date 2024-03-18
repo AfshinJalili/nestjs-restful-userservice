@@ -6,7 +6,7 @@ import mongooseModuleOptions from './config/mongodb';
 @Module({
   imports: [
     ConfigModule.forRoot(applicationConfig),
-    MongooseModule.forRootAsync(mongooseModuleOptions),
+    MongooseModule.forRoot(mongooseModuleOptions.uri),
   ],
   controllers: [],
   providers: [],
