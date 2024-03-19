@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import { AppModule } from '../src/app.module';
+import 'jest';
 // import * as request from 'supertest';
 
 describe('nest application (e2e)', () => {
@@ -19,5 +20,7 @@ describe('nest application (e2e)', () => {
     expect(true).toBe(true);
   });
 
-  // your test goes here
+  afterAll(async () => {
+    await app.close();
+  });
 });
