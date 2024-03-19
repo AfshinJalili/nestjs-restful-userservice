@@ -5,4 +5,4 @@ http:
   port: 3000
 
 mongodb:
-  uri: 'mongodb://username:password@localhost:27017/db?authSource=admin'
+  uri: 'mongodb://127.0.0.1:27017/db'
