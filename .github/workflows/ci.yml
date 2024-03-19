@@ -31,6 +31,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: npm install
+      - name: Copy config.yaml
+        run: cp config.example.yaml config.yaml
       - name: ESLint
         run: npm run lint
       - name: Prettier
@@ -38,9 +40,9 @@ jobs:
       - name: Test
         run: npm run test
       - name: Copy .env
-        run: cp .env.dist .env
+        run: cp .env.example .env
       - name: Build the docker-compose stack
-        run: docker-compose up -d --build postgres redis
+        run: docker-compose up -d --build mongodb
       - name: Check running containers
         run: docker ps -a
       - name: E2E

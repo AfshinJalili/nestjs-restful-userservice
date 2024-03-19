@@ -14,7 +14,11 @@ export class HttpConfig {
   port: number;
 }
 
-// define your configs here
+export class MongoDbConfig {
+  @IsString()
+  uri: string;
+}
+
 export class Configuration {
   // @IsEnum(Environment) fixme: property environment has failed constraint isEnum
   environment: Environment;
@@ -22,5 +26,6 @@ export class Configuration {
   @ValidateNested()
   http: HttpConfig;
 
-  // add your configs here
+  @ValidateNested()
+  mongodb: MongoDbConfig;
 }
